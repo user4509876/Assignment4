@@ -1,0 +1,22 @@
+import random
+import numpy as np
+import matplotlib.pyplot as plt
+
+def run():
+    x = 1
+    while x < 25:
+        result = random.randint(1, 2)
+        x += result
+    return x == 25
+
+def run1(num):
+    count = 0
+    for _ in range(num):
+        if run():
+            count += 1
+    return count
+
+num = 1000000
+count = run1(num)
+
+print(f"Number of times landing on step 25 after playing {num} games:", count)
