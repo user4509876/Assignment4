@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def P(n,x):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 0.5
+    elif n <= 0:
+        return 0
+    else:
+        return 0.5 * P(n - 1,x) + 0.5 * P(n - x,x)
+
+p =[]
+x_val = np.arange(2,26)
+for i in x_val:
+    p.append(P(25,i))
+plt.plot(x_val, p)
+plt.grid(True)
+plt.ylabel("P(25)")
+plt.xlabel("x")
+plt.xticks(np.arange(2, 25, step=2))
+plt.title("How P(25) changes as we alter the x value on the coin")
+plt.show()
