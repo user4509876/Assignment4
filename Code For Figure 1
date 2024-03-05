@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def P(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 0.5
+    else:
+        return 0.5 * P(n - 1) + 0.5 * P(n - 2)
+
+n_val = list(range(1, 21))
+P_val = [P(n) for n in n_val]
+
+plt.plot(n_val, P_val, marker='o', linestyle='-')
+plt.title("Probability of Landing on Step n")
+plt.xlabel("Step Number (n)")
+plt.ylabel("P(n)")
+plt.grid(True)
+plt.show()
